@@ -1,12 +1,10 @@
 import React from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      Working
-    </div>
-  );
+const App: React.FC = () => {
+  return <div className="App">
+    <span className='heading'>Taskly</span>
+  </div>;
 }
 
 export default App;
