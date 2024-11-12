@@ -6,7 +6,7 @@ const InputField = () => {
     <form className="input">
       ,<input type="input" placeholder="Enter a task" className="input_box" />
       <button className="input_submit" type="submit">
-        Add
+        Go
       </button>
     </form>
   );
