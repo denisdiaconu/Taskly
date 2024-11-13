@@ -1,9 +1,32 @@
-import React from 'react'
+import React from 'react';
+import { Todo } from '../model';
+import './styles.css';
+import { AiFillEdit, AiFillDelete } from 'react-icons/ai';
+import { MdDone } from 'react-icons/md';
 
-const TodoCard = () => {
+type Props = {
+  todo: Todo;
+  todos: Todo[];
+  setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
+};
+
+const TodoCard = ({ todo, todos, setTodos }: Props) => {
   return (
-    <div>TodoCard</div>
-  )
-}
+    <form className="todos_card">
+      <span className="todos_card_text">{todo.todo}</span>
+      <div>
+        <span className="icon">
+          <AiFillEdit />
+        </span>
+        <span className="icon">
+          <AiFillDelete />
+        </span>
+        <span className="icon">
+          <MdDone />
+        </span>
+      </div>
+    </form>
+  );
+};
 
-export default TodoCard
+export default TodoCard;
