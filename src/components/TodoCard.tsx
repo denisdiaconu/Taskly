@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Todo } from '../model';
 import './styles.css';
 import { AiFillEdit, AiFillDelete } from 'react-icons/ai';
@@ -23,18 +23,23 @@ const TodoCard = ({ todo, todos, setTodos }: Props) => {
   const handleDelete = (id: number) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
-  const handleEdit = (e:React.FormEvent, id:number) => {
-    e.preventDefault()
-    setTodos(todos.map((todo)=> (
-      todo.id===id?{...todo,todo:editTodo}:todo
-    )))
-    setEdit(false)
-  }
+  const handleEdit = (e: React.FormEvent, id: number) => {
+    e.preventDefault();
+    setTodos(
+      todos.map((todo) => (todo.id === id ? { ...todo, todo: editTodo } : todo))
+    );
+    setEdit(false);
+  };
+  const inputRef = useRef<HTMLInputElement>(null);
+  useEffect(() => {
+    inputRef.current?.focus()
+  }, [edit])
   return (
     <form className="todos_card" onSubmit={(e) => handleEdit(e, todo.id)}>
       {edit ? (
         <input
-          className="todos_card_test"
+          ref={inputRef}
+          className="todos_card_text"
           value={editTodo}
           onChange={(e) => setEditTodo(e.target.value)}
         />
