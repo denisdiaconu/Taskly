@@ -11,6 +11,9 @@ type Props = {
 };
 
 const TodoCard = ({ todo, todos, setTodos }: Props) => {
+  const handleDone = (id:number) => {
+    setTodos(todos.map((todo)=> todo.id===id?{...todo, isDone:!todo.isDone}: todo))
+  }
   return (
     <form className="todos_card">
       <span className="todos_card_text">{todo.todo}</span>
@@ -21,7 +24,7 @@ const TodoCard = ({ todo, todos, setTodos }: Props) => {
         <span className="icon">
           <AiFillDelete />
         </span>
-        <span className="icon">
+        <span className="icon" onClick={() => handleDone(todo.id)}>
           <MdDone />
         </span>
       </div>
