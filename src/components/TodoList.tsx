@@ -11,7 +11,7 @@ interface Props {
   setCompletedTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
 }
 
-const TodoList: React.FC<Props> = ({ todos, setTodos }) => {
+const TodoList: React.FC<Props> = ({ todos, setTodos, completedTodos, setCompletedTodos }) => {
   return (
     <div className="container">
       <Droppable droppableId="TodosList">
@@ -22,9 +22,10 @@ const TodoList: React.FC<Props> = ({ todos, setTodos }) => {
             {...provided.droppableProps}
           >
             <span className="todos_heading">Active Tasks</span>
-            {todos.map((todo) => (
+            {todos.map((todo, index) => (
               <TodoCard
                 todo={todo}
+                index={index}
                 todos={todos}
                 setTodos={setTodos}
                 key={todo.id}
@@ -41,11 +42,12 @@ const TodoList: React.FC<Props> = ({ todos, setTodos }) => {
             {...provided.droppableProps}
           >
             <span className="todos_heading">Completed Tasks</span>
-            {todos.map((todo) => (
+            {completedTodos.map((todo, index) => (
               <TodoCard
                 todo={todo}
-                todos={todos}
-                setTodos={setTodos}
+                index={index}
+                todos={completedTodos}
+                setTodos={setCompletedTodos}
                 key={todo.id}
               />
             ))}
