@@ -84,6 +84,18 @@
   cursor: pointer;
 }
 
+.dragactive {
+  background-color: rgb(0, 221, 236);
+}
+
+.dragcomplete {
+  background-color: rgb(255, 38, 0);
+}
+
+.drag {
+  box-shadow: 0 0 20px black;
+}
+
 .container {
   width: 95%;
   display: flex;

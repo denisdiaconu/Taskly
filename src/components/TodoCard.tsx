@@ -38,8 +38,14 @@ const TodoCard = ({ index, todo, todos, setTodos }: Props) => {
   }, [edit]);
   return (
     <Draggable draggableId={todo.id.toString()} index={index}>
-      {(provided) => (
-        <form className="todos_card" onSubmit={(e) => handleEdit(e, todo.id)} {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
+      {(provided, snapshot) => (
+        <form
+          className={`todos_card ${snapshot.isDragging ? 'drag' : ''}`}
+          onSubmit={(e) => handleEdit(e, todo.id)}
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+          ref={provided.innerRef}
+        >
           {edit ? (
             <input
               ref={inputRef}
