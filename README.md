@@ -17,7 +17,7 @@ To get a local copy up and running follow these simple example steps on the comm
 > Clone the project from it's github repo.
 ```bash
 
-  $ git clone https://github.com/denisdiaconu/tailwind-landing-page.git
+  $ git clone https://github.com/denisdiaconu/taskly.git
   
 ```
 
