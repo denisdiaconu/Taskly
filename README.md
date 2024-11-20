@@ -24,7 +24,7 @@ To get a local copy up and running follow these simple example steps on the comm
 > Change directory to the root of project
 ```bash
 
-  $ cd tailwind-landing-page
+  $ cd taskly
   
 ```
   
